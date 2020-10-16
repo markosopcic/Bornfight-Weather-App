@@ -1,4 +1,4 @@
-package com.markosopcic.weathersopcic
+package com.markosopcic.weather
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
