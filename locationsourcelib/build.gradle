@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+dependencies {
+    implementation project(":base")
+
+    implementation Dependencies.Room
+    implementation Dependencies.RoomRxJavaAdapter
+    implementation Dependencies.Places
+    kapt Dependencies.RoomAnnotationProcessor
+}

@@ -1,3 +1,6 @@
+include ':locationsourcelib'
+include ':searchlocations'
+include ':weatherservicelib'
 include ':app'
 include ':base'
 rootProject.name = "Weather Sopčić"

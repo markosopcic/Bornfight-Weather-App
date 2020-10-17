@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+dependencies{
+    implementation project(":base")
+    implementation project(":locationsourcelib")
+
+    implementation Dependencies.Retrofit
+    implementation Dependencies.RetrofitRxAdapter
+    implementation Dependencies.MoshiConverter
+}

@@ -30,13 +30,7 @@ dependencies {
     implementation Dependencies.Koin
     implementation Dependencies.KoinViewModel
     implementation Dependencies.RxJava
-    implementation Dependencies.Retrofit
-    implementation Dependencies.RetrofitRxAdapter
-    implementation Dependencies.Material
-    implementation Dependencies.MoshiConverter
-    implementation Dependencies.Timber
-    implementation Dependencies.GooglePlayServices
     implementation Dependencies.RxAndroid
-    implementation Dependencies.ConstraintLayout
-    implementation Dependencies.ViewPager2
+    implementation Dependencies.Timber
+    implementation Dependencies.Material
 }

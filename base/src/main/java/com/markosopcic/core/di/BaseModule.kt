@@ -10,7 +10,7 @@ import org.koin.dsl.module
 const val MAIN_SCHEDULER = "MAIN_SCHEDULER"
 const val BACKGROUND_SCHEDULER = "BACKGROUND_SCHEDULER"
 
-fun coreModule() = module {
+fun baseModule() = module {
 
     single { RoutingHandler }
     single<RoutingActionSender> { RoutingHandler }

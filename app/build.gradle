@@ -10,5 +10,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':searchlocations')
     implementation project(":base")
+    implementation project(":locationsourcelib")
+    implementation project(":weatherservicelib")
+
+    implementation Dependencies.Places
 }

@@ -3,7 +3,6 @@ package com.markosopcic.core
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
-import retrofit2.HttpException
 import timber.log.Timber
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit

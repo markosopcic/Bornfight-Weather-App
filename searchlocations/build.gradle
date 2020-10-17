@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+
+dependencies{
+    implementation project(":base")
+    implementation project(":locationsourcelib")
+    implementation project(":weatherservicelib")
+
+    implementation Dependencies.ConstraintLayout
+    implementation Dependencies.GooglePlayServicesPlaces
+    implementation Dependencies.Places
+    implementation Dependencies.Glide
+}

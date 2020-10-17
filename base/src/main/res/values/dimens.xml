@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="common_text_input_padding">5dp</dimen>
     <dimen name="common_margin">10dp</dimen>
     <dimen name="base_rounded_background_radius">10dp</dimen>
     <dimen name="base_bottom_sheet_elevation">15dp</dimen>
+    <dimen name="base_divider_height">0.5dp</dimen>
 </resources>

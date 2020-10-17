@@ -1,0 +1,9 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+
+dependencies{
+    implementation project(":base")
+
+    implementation Dependencies.ConstraintLayout
+}

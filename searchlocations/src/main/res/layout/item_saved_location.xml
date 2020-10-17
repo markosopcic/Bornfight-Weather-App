@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_selectable_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/item_saved_location_padding">
+
+    <ImageView
+        android:id="@+id/location_weatherImage"
+        android:layout_width="@dimen/search_locations_weather_image_dimen"
+        android:layout_height="@dimen/search_locations_weather_image_dimen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        style="@style/BaseText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/location_temperature"
+        app:layout_constraintStart_toEndOf="@id/location_weatherImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Zagreb, Croatia" />
+
+    <TextView
+        android:id="@+id/location_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/search_locations_temperature_margin_horizontal"
+        style="@style/BaseText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/location_temperatureMin"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="32" />
+
+
+    <TextView
+        android:id="@+id/location_temperatureMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/common_margin"
+        style="@style/BaseText"
+        android:textColor="@color/base_red_warm"
+        app:layout_constraintBottom_toTopOf="@id/location_temperatureMin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="32" />
+
+    <TextView
+        android:id="@+id/location_temperatureMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/common_margin"
+        style="@style/BaseText"
+        android:textColor="@color/base_blue_cold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_temperatureMax"
+        tools:text="32" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
