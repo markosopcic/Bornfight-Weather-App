@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+
+dependencies{
+    implementation project(":base")
+
+    implementation project(path: ':weatherservicelib')
+    implementation project(path: ':locationsourcelib')
+}

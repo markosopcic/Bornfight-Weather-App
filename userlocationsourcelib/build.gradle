@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/buildSrc/src/build.gradle"
+
+
+dependencies{
+    implementation project(":base")
+
+    implementation Dependencies.Places
+    implementation project(path: ':locationsourcelib')
+}

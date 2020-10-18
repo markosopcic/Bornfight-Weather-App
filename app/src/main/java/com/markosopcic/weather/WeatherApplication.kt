@@ -4,7 +4,10 @@ import android.app.Application
 import com.markosopcic.searchlocations.di.searchLocationsModule
 import com.markosopcic.core.di.baseModule
 import com.markosopcic.locationsource.di.locationSourceModule
+import com.markosopcic.permissionslib.di.permissionsModule
+import com.markosopcic.userlocationsource.di.userLocationModule
 import com.markosopcic.weather.di.appModule
+import com.markosopcic.weatherdetails.di.weatherDetailsModule
 import com.markosopcic.weatherservicelib.di.weatherServiceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -19,10 +22,13 @@ class WeatherApplication : Application() {
         startKoin {
             androidContext(this@WeatherApplication)
             modules(
-                searchLocationsModule(),
                 appModule(),
                 baseModule(),
                 locationSourceModule(),
+                permissionsModule(),
+                searchLocationsModule(),
+                userLocationModule(),
+                weatherDetailsModule(),
                 weatherServiceModule()
             )
         }

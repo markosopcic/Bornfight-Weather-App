@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/autocomplete_fragment"
+        android:id="@+id/search_locations_searchFragment"
         android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,22 +16,23 @@
         tools:ignore="FragmentTagUsage" />
 
     <ImageButton
+        android:id="@+id/search_locations_userLocation"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/ic_baseline_my_location_24"
-        app:layout_constraintBottom_toBottomOf="@id/autocomplete_fragment"
-        app:layout_constraintEnd_toEndOf="@id/autocomplete_fragment"
-        app:layout_constraintTop_toTopOf="@id/autocomplete_fragment" />
+        app:layout_constraintBottom_toBottomOf="@id/search_locations_searchFragment"
+        app:layout_constraintEnd_toEndOf="@id/search_locations_searchFragment"
+        app:layout_constraintTop_toTopOf="@id/search_locations_searchFragment" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/add_location_recyclerView"
+        android:id="@+id/search_location_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/autocomplete_fragment"
+        app:layout_constraintTop_toBottomOf="@id/search_locations_searchFragment"
         tools:listitem="@layout/item_saved_location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

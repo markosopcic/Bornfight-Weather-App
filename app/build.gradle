@@ -13,7 +13,9 @@ dependencies {
     implementation project(':searchlocations')
     implementation project(":base")
     implementation project(":locationsourcelib")
+    implementation project(":weatherdetails")
     implementation project(":weatherservicelib")
+    implementation project(":permissionslib")
+    implementation project(":userlocationsourcelib")
 
-    implementation Dependencies.Places
 }

@@ -12,13 +12,13 @@ fun FragmentManager.addFragment(@IdRes containerId: Int, fragment: Fragment, add
         if (addToBackStack) {
             beginTransaction()
                 .additionalAction()
-                .add(containerId, fragment, fragment::class.java.simpleName)
+                .replace(containerId, fragment, fragment::class.java.simpleName)
                 .addToBackStack(fragment::class.java.simpleName)
                 .commit()
             executePendingTransactions()
         } else {
             beginTransaction()
-                .add(containerId, fragment, fragment::class.java.simpleName)
+                .replace(containerId, fragment, fragment::class.java.simpleName)
                 .additionalAction()
                 .commitNow()
         }

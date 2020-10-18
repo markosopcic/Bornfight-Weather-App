@@ -6,6 +6,8 @@ apply from: "$rootDir/buildSrc/src/build.gradle"
 dependencies{
     implementation project(":base")
     implementation project(":locationsourcelib")
+    implementation project(":permissionslib")
+    implementation project(':userlocationsourcelib')
     implementation project(":weatherservicelib")
 
     implementation Dependencies.ConstraintLayout

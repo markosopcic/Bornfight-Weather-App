@@ -1,3 +1,6 @@
+include ':weatherdetails'
+include ':userlocationsourcelib'
+include ':permissionslib'
 include ':locationsourcelib'
 include ':searchlocations'
 include ':weatherservicelib'
