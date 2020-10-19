@@ -2,14 +2,16 @@ apply plugin: 'com.android.library'
 
 apply from: "$rootDir/buildSrc/src/build.gradle"
 
-
 dependencies{
     implementation project(":base")
 
     implementation project(path: ':weatherservicelib')
     implementation project(path: ':locationsourcelib')
-
+    implementation project(path: ':youtubevideosourcelib')
     implementation Dependencies.ConstraintLayout
     implementation Dependencies.Glide
+    implementation Dependencies.Youtube
+    implementation Dependencies.AppCompat
 
+    implementation files("libs/YouTubeAndroidPlayerApi.jar")
 }

@@ -11,6 +11,7 @@ import com.markosopcic.weatherdetails.ui.WeatherDetailsViewState.Loading
 import com.markosopcic.weatherdetails.ui.WeatherDetailsViewState.LocationSaved
 import com.markosopcic.weatherservicelib.models.DetailedWeatherStatus
 import com.markosopcic.weatherservicelib.usecase.GetDetailedWeatherForLocation
+import com.markosopcic.youtubevideosource.usecase.SearchYoutubeVideos
 import io.reactivex.Scheduler
 import io.reactivex.processors.BehaviorProcessor
 import java.text.SimpleDateFormat
@@ -25,6 +26,7 @@ class WeatherDetailsViewModel(
     private val saveLocation: SaveLocation,
     private val getSavedLocations: GetSavedLocations,
     private val removeSavedLocation: RemoveSavedLocation,
+    private val searchYoutubeVideos: SearchYoutubeVideos,
     getDetailedWeatherForLocation: GetDetailedWeatherForLocation,
     backgroundScheduler: Scheduler,
     mainScheduler: Scheduler,
@@ -33,15 +35,25 @@ class WeatherDetailsViewModel(
 
     private val progressProcessor = BehaviorProcessor.create<Boolean>()
 
+    private val videoQueryProcessor = BehaviorProcessor.create<String>()
+
     init {
         observe(progressProcessor.map(::Loading))
 
+        observe(videoQueryProcessor.switchMap { searchYoutubeVideos(it) }.map { WeatherDetailsViewState.YoutubeVideoId(it.firstOrNull()?.id) })
+
         observe(getSavedLocations().map { LocationSaved(it.any { it.name == location.name && it.latitude == location.latitude && it.longitude == location.longitude }) })
 
-        observe(getDetailedWeatherForLocation(location).map {
-            WeatherDetailsViewState.LocationForecast(it.getCurrentWeather(),
+        observe(getDetailedWeatherForLocation(location).doOnNext {
+
+        }.map {
+            val query = "${location.name}, ${it.current.weather.firstOrNull()?.main ?: ""}"
+            videoQueryProcessor.onNext(query)
+            WeatherDetailsViewState.LocationForecast(
+                it.getCurrentWeather(),
                 it.getHourlyForecast(),
-                it.getDailyForecast())
+                it.getDailyForecast()
+            )
 
         }.publishProgress(progressProcessor))
     }
@@ -86,7 +98,8 @@ class WeatherDetailsViewModel(
             pressure,
             weather.firstOrNull()?.icon ?: "",
             sunrise.getTimeFormatFromUnixSeconds(),
-            sunset.getTimeFormatFromUnixSeconds())
+            sunset.getTimeFormatFromUnixSeconds()
+        )
     }
 
     private fun Int.getDayFromUnixSeconds(): String {

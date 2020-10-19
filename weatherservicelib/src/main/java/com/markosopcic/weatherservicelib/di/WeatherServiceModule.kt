@@ -32,17 +32,16 @@ fun weatherServiceModule() = module {
 
     single {
         get<Retrofit.Builder>()
-            .client(get())
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(::addApiKeyInterceptor)
+                    .addInterceptor(::addLoggingInterceptor)
+                    .build()
+            )
             .build()
             .create(WeatherService::class.java)
     }
 
-    factory {
-        OkHttpClient.Builder()
-            .addInterceptor(::addApiKeyInterceptor)
-            .addInterceptor(::addLoggingInterceptor)
-            .build()
-    }
 
     single { GetWeatherForLocation(get()) }
 

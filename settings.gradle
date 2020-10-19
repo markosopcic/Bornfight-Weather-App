@@ -1,3 +1,4 @@
+include ':youtubevideosourcelib'
 include ':weatherdetails'
 include ':userlocationsourcelib'
 include ':permissionslib'

@@ -17,5 +17,6 @@ dependencies {
     implementation project(":weatherservicelib")
     implementation project(":permissionslib")
     implementation project(":userlocationsourcelib")
+    implementation project(":youtubevideosourcelib")
 
 }

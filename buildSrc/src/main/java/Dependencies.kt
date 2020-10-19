@@ -14,11 +14,14 @@ object Versions {
     const val Places = "2.4.0"
     const val Glide = "4.11.0"
     const val OkHttpLogging = "4.9.0"
+    const val Youtube = "v3-rev222-1.25.0"
+    const val AppCompatv4 = "28.0.0"
 
 }
 
 object Dependencies {
     const val AppCompat = "androidx.appcompat:appcompat:${Versions.AppCompat}"
+    const val AppCompatv4 = "com.android.support:support-v4:${Versions.AppCompatv4}"
     const val Koin = "org.koin:koin-android:${Versions.Koin}"
     const val KoinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.Koin}"
     const val RxJava = "io.reactivex.rxjava2:rxjava:${Versions.RxJava}"
@@ -40,6 +43,7 @@ object Dependencies {
     const val Glide = "com.github.bumptech.glide:glide:${Versions.Glide}"
     const val OkHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.OkHttpLogging}"
     const val RoomKtx = "androidx.room:room-ktx:${Versions.Room}"
+    const val Youtube = "com.google.apis:google-api-services-youtube:${Versions.Youtube}"
 }
 
 
