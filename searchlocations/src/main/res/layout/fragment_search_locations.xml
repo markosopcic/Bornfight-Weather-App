@@ -24,6 +24,30 @@
         app:layout_constraintEnd_toEndOf="@id/search_locations_searchFragment"
         app:layout_constraintTop_toTopOf="@id/search_locations_searchFragment" />
 
+    <ImageView
+        android:id="@+id/weather_details_saved_title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:src="@drawable/line_separator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_locations_searchFragment" />
+
+    <TextView
+        android:id="@+id/search_location_savedLocationsTitle"
+        style="@style/Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:gravity="center"
+        android:overScrollMode="never"
+        android:text="Saved locations"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_details_saved_title_divider"
+        tools:listitem="@layout/item_saved_location" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_location_recyclerView"
         android:layout_width="0dp"
@@ -32,8 +56,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_location_savedLocationsTitle"
+        tools:listitem="@layout/item_saved_location" />
+
+    <TextView
+        android:id="@+id/search_location_noSavedLocationsText"
+        style="@style/Title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/common_margin"
+        android:overScrollMode="never"
+        android:text="You currently don't have any saved locations!\nUse the search bar above \nor use your current location and then save them!"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_locations_searchFragment"
         tools:listitem="@layout/item_saved_location" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/search_locations_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_dark_gray_opacity_80"
+        android:clickable="true"
+        android:padding="@dimen/base_spinner_padding" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -30,8 +30,6 @@ class LocationsAdapter(private val context: Context, private val callback: (Int)
 
         private val nameText = view.location_name
         private val currentTemperature = view.location_temperature
-        private val minTemperature = view.location_temperatureMin
-        private val maxTemperature = view.location_temperatureMax
         private val weatherImage = view.location_weatherImage
 
         fun render(location: LocationItemViewState, callback: (Int) -> Unit) {
@@ -39,12 +37,10 @@ class LocationsAdapter(private val context: Context, private val callback: (Int)
                 callback(location.id)
             }
             with(location) {
-                val template = view.resources.getString(R.string.add_locations_celsius_format)
+                val template = view.resources.getString(R.string.search_locations_celsius_format)
                 Glide.with(view.context).load(location.iconUrl).into(weatherImage)
                 nameText.text = name
                 currentTemperature.text = template.format(temperature)
-                maxTemperature.text = template.format(tempMax)
-                minTemperature.text = template.format(tempMin)
             }
         }
     }

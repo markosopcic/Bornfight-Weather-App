@@ -12,7 +12,7 @@ import org.koin.dsl.module
 fun searchLocationsModule() = module {
 
     viewModel {
-        SearchLocationsViewModel(get(), get(), get(), get(), get(), get(named(BACKGROUND_SCHEDULER)), get(named(MAIN_SCHEDULER)), get())
+        SearchLocationsViewModel(get(), get(), get(), get(), get(named(BACKGROUND_SCHEDULER)), get(named(MAIN_SCHEDULER)), get())
     }
 
     factory {

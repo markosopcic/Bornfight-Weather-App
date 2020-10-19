@@ -10,5 +10,6 @@ dependencies {
     implementation Dependencies.Room
     implementation Dependencies.RoomRxJavaAdapter
     implementation Dependencies.Places
+    implementation Dependencies.RoomKtx
     kapt Dependencies.RoomAnnotationProcessor
 }

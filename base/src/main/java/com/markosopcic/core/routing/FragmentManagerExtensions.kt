@@ -12,13 +12,13 @@ fun FragmentManager.addFragment(@IdRes containerId: Int, fragment: Fragment, add
         if (addToBackStack) {
             beginTransaction()
                 .additionalAction()
-                .replace(containerId, fragment, fragment::class.java.simpleName)
+                .add(containerId, fragment, fragment::class.java.simpleName)
                 .addToBackStack(fragment::class.java.simpleName)
                 .commit()
             executePendingTransactions()
         } else {
             beginTransaction()
-                .replace(containerId, fragment, fragment::class.java.simpleName)
+                .add(containerId, fragment, fragment::class.java.simpleName)
                 .additionalAction()
                 .commitNow()
         }
@@ -31,6 +31,6 @@ fun FragmentManager.removeFragment(tag: String) = onMainThread {
     }
 }
 
-private fun onMainThread(action: () -> Unit) = with(Looper.getMainLooper()) {
+fun onMainThread(action: () -> Unit) = with(Looper.getMainLooper()) {
     if (Looper.myLooper() == this) action() else Handler(this).post(action)
 }

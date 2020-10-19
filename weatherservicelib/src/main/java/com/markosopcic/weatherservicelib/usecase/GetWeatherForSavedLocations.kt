@@ -3,6 +3,7 @@ package com.markosopcic.weatherservicelib.usecase
 import com.markosopcic.core.usecase.QueryUseCase
 import com.markosopcic.locationsource.model.Location
 import com.markosopcic.locationsource.usecase.GetSavedLocations
+import com.markosopcic.weatherservicelib.models.Coordinates
 import com.markosopcic.weatherservicelib.models.WeatherStatus
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -12,7 +13,7 @@ class GetWeatherForSavedLocations(private val getSavedLocations: GetSavedLocatio
     override fun invoke(): Flowable<List<LocationWithWeather>> = getSavedLocations()
         .flatMapSingle { locations ->
             Observable.merge(locations.map { location ->
-                getWeatherForLocation(location)
+                getWeatherForLocation(Coordinates(location.latitude, location.longitude))
                     .toObservable()
                     .map { LocationWithWeather(location, it) }
             })

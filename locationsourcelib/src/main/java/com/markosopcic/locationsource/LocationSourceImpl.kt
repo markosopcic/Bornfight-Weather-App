@@ -14,14 +14,17 @@ class LocationSourceImpl(private val locationDao: LocationDao) : LocationSource 
 
     override fun getStoredLocations(): Flowable<List<Location>> =
         locationDao.getStoredLocations().map {
-            it.map(::mapToDomainModel)
+            it.map { it.mapToDomainModel() }
         }
 
-    override fun getSavedLocationForId(id: Int): Single<Location> = locationDao.getLocationById(id).map(::mapToDomainModel)
+    override fun getSavedLocationForId(id: Int): Single<Location> = locationDao.getLocationById(id).map { it.mapToDomainModel() }
 
+    override fun isLocationSaved(location: Location) = locationDao.findByNameAndCoordinates(location.latitude, location.longitude, location.name).map { it.any() }
+
+    override fun deleteLocation(id: Int): Completable = locationDao.deleteLocation(id)
 
     private fun Location.mapToDatabaseModel() = DbLocation(id, name, longitude, latitude)
 
-    private fun mapToDomainModel(dbLocation: DbLocation) = with(dbLocation) { Location(id!!, name, longitude, latitude) }
+    private fun DbLocation.mapToDomainModel() = Location(id, name, longitude, latitude)
 
 }

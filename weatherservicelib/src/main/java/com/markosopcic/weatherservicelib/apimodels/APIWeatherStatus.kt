@@ -50,7 +50,9 @@ data class APIMain(
     @field:Json(name = "temp_max")
     val temperatureMax: Double,
     @field:Json(name = "temp_min")
-    val temperatureMin: Double
+    val temperatureMin: Double,
+    @field:Json(name = "feels_like")
+    val feelsLikeTemp: Double
 )
 
 data class APIGeneral(

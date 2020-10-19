@@ -5,5 +5,6 @@
     <color name="base_blue_cold">#0072c9</color>
     <color name="base_red_warm">#c70902</color>
     <color name="base_dark_gray">#a9a9a9</color>
+    <color name="base_dark_gray_opacity_80">#88a9a9a9</color>
 
 </resources>

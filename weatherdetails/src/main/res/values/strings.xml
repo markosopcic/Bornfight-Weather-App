@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_details_current_forecast_title">Current weather</string>
+    <string name="weather_details_current_temperature_format">%d°C, feels like %d°C</string>
+    <string name="weather_details_temperature_celsius_format">%d°C</string>
+    <string name="weather_details_percentage_format">%d%%</string>
+    <string name="weather_details_pressure_format">%d hPa</string>
+    <string name="weather_details_wind_speed_format">%d m/s</string>
+    <string name="weather_details_wind_direction_format">%d°</string>
+    <string name="weather_details_daily_forecast_title">Daily forecast</string>
+    <string name="weather_details_hourly_forecast_title">Hourly forecast</string>
+</resources>

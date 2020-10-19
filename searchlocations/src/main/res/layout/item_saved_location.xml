@@ -37,32 +37,8 @@
         android:layout_marginHorizontal="@dimen/search_locations_temperature_margin_horizontal"
         style="@style/BaseText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/location_temperatureMin"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="32" />
-
-
-    <TextView
-        android:id="@+id/location_temperatureMax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/common_margin"
-        style="@style/BaseText"
-        android:textColor="@color/base_red_warm"
-        app:layout_constraintBottom_toTopOf="@id/location_temperatureMin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="32" />
-
-    <TextView
-        android:id="@+id/location_temperatureMin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/common_margin"
-        style="@style/BaseText"
-        android:textColor="@color/base_blue_cold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location_temperatureMax"
         tools:text="32" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

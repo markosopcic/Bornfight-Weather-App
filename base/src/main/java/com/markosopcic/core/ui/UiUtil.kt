@@ -3,11 +3,16 @@ package com.markosopcic.core.ui
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
+import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.markosopcic.core.R
+
+fun View.setVisible(visible: Boolean) {
+    this.visibility = if (visible) View.VISIBLE else View.GONE
+}
 
 fun RecyclerView.addDividerWithoutLast(divider: Drawable) {
 
@@ -15,7 +20,7 @@ fun RecyclerView.addDividerWithoutLast(divider: Drawable) {
         return
 
     addItemDecoration(object :
-            DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation) {
+        DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation) {
 
         override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
             val left = parent.paddingLeft

@@ -12,4 +12,8 @@ interface LocationSource {
     fun getStoredLocations(): Flowable<List<Location>>
 
     fun getSavedLocationForId(id: Int): Single<Location>
+
+    fun isLocationSaved(location: Location): Flowable<Boolean>
+
+    fun deleteLocation(id: Int): Completable
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_round_white"
+    android:elevation="5dp"
+    android:layout_margin="@dimen/common_margin"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/forecast_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="14:00" />
+
+    <TextView
+        android:id="@+id/forecast_item_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        app:layout_constraintEnd_toEndOf="@id/forecast_item_weatherImage"
+        app:layout_constraintStart_toStartOf="@id/forecast_item_weatherImage"
+        app:layout_constraintTop_toBottomOf="@id/forecast_item_time"
+        tools:text="33°C" />
+
+    <ImageView
+        android:id="@+id/forecast_item_weatherImage"
+        android:layout_width="@dimen/weather_details_current_weather_image_dimen"
+        android:layout_height="@dimen/weather_details_current_weather_image_dimen"
+        android:layout_margin="@dimen/common_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forecast_item_temperature" />
+
+    <TextView
+        android:id="@+id/forecast_item_precipitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        app:layout_constraintEnd_toEndOf="@id/forecast_item_weatherImage"
+        app:layout_constraintStart_toStartOf="@id/forecast_item_weatherImage"
+        app:layout_constraintTop_toBottomOf="@id/forecast_item_weatherImage"
+        tools:text="33%" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

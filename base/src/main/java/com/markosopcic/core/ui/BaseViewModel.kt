@@ -42,18 +42,21 @@ abstract class BaseViewModel<BaseViewState : Any>(
             viewState
                 .subscribeOn(backgroundScheduler)
                 .observeOn(mainScheduler)
-                .subscribe(viewStateProcessor::onNext, Timber::e)
+                .subscribe(viewStateProcessor::onNext, { Timber.e(it) })
         )
     }
 
     protected fun execute(command: Completable) = disposables.add(
         command
             .subscribeOn(backgroundScheduler)
-            .subscribe(Functions.EMPTY_ACTION, Consumer(Timber::w))
+            .subscribe(Functions.EMPTY_ACTION, {
+                Timber.w(it)
+            })
     )
 
     fun viewStates(): Collection<Flowable<BaseViewState>> = viewStateProcessors.values
 
     protected fun sendRoutingAction(action: (Router) -> Unit) =
         routingActionSender.sendRoutingAction(action)
+
 }

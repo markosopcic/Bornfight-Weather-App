@@ -13,6 +13,7 @@ object Versions {
     const val Room = "2.2.5"
     const val Places = "2.4.0"
     const val Glide = "4.11.0"
+    const val OkHttpLogging = "4.9.0"
 
 }
 
@@ -37,6 +38,8 @@ object Dependencies {
     const val RoomRxJavaAdapter = "androidx.room:room-rxjava2:${Versions.Room}"
     const val Places = "com.google.android.libraries.places:places:${Versions.Places}"
     const val Glide = "com.github.bumptech.glide:glide:${Versions.Glide}"
+    const val OkHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.OkHttpLogging}"
+    const val RoomKtx = "androidx.room:room-ktx:${Versions.Room}"
 }
 
 

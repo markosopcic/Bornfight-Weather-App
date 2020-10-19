@@ -8,4 +8,8 @@ dependencies{
 
     implementation project(path: ':weatherservicelib')
     implementation project(path: ':locationsourcelib')
+
+    implementation Dependencies.ConstraintLayout
+    implementation Dependencies.Glide
+
 }

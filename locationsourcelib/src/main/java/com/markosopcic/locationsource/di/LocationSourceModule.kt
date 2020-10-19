@@ -4,9 +4,7 @@ import androidx.room.Room
 import com.markosopcic.locationsource.LocationSource
 import com.markosopcic.locationsource.LocationSourceImpl
 import com.markosopcic.locationsource.storage.database.LocationDatabase
-import com.markosopcic.locationsource.usecase.GetSavedLocationById
-import com.markosopcic.locationsource.usecase.GetSavedLocations
-import com.markosopcic.locationsource.usecase.SaveLocation
+import com.markosopcic.locationsource.usecase.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -26,4 +24,7 @@ fun locationSourceModule() = module {
 
     single { GetSavedLocationById(get()) }
 
+    single { IsLocationSaved(get()) }
+
+    single { RemoveSavedLocation(get()) }
 }

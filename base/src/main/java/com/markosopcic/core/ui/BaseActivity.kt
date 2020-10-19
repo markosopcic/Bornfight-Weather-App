@@ -1,6 +1,7 @@
 package com.markosopcic.core.ui
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.markosopcic.core.routing.Router
@@ -8,7 +9,6 @@ import com.markosopcic.core.routing.RoutingConsumer
 import com.markosopcic.core.routing.RoutingHandler
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
-
 open class BaseActivity(@LayoutRes activityId: Int) : AppCompatActivity(activityId), RoutingConsumer {
 
     protected val router: Router by inject { parametersOf(this) }
@@ -36,4 +36,12 @@ open class BaseActivity(@LayoutRes activityId: Int) : AppCompatActivity(activity
         routingHandler.removeRoutingConsumer(this)
     }
 
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) router.goBack()
+        return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onBackPressed() = Unit
+
 }
+

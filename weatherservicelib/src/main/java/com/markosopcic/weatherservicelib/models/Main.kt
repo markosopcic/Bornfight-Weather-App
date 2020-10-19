@@ -5,5 +5,6 @@ data class Main(
     val pressure: Int,
     val temperature: Double,
     val temperatureMax: Double,
-    val temperatureMin: Double
+    val temperatureMin: Double,
+    val feelsLike: Double
 )

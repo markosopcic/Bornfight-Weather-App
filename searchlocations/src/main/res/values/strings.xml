@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="add_locations_search_hint">Search for cities...</string>
-    <string name="add_locations_no_stored_locations_text">You currently have no locations stored!\n Search for cities or use your current location via the button next to the search bar!</string>
-    <string name="add_locations_celsius_format">%d°C</string>
+    <string name="search_locations_search_hint">Search for cities...</string>
+    <string name="search_locations_no_stored_locations_text">You currently have no locations stored!\n Search for cities or use your current location via the button next to the search bar!</string>
+    <string name="search_locations_celsius_format">%d°C</string>
 </resources>

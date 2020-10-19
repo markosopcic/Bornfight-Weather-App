@@ -9,6 +9,7 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.markosopcic.core.ui.BaseFragment
 import com.markosopcic.core.ui.addBasicDivider
+import com.markosopcic.core.ui.setVisible
 import com.markosopcic.searchlocations.R
 import com.markosopcic.searchlocations.ui.SearchLocationsViewState.SavedLocationsViewState
 import kotlinx.android.synthetic.main.fragment_search_locations.*
@@ -58,6 +59,12 @@ class SearchLocationsFragment : BaseFragment<SearchLocationsViewState>(R.layout.
     }
 
     override fun render(viewState: SearchLocationsViewState) = when (viewState) {
-        is SavedLocationsViewState -> adapter.updateItems(viewState.locations)
+        is SavedLocationsViewState -> updateSavedLocations(viewState)
+        is SearchLocationsViewState.Loading -> search_locations_spinner.setVisible(viewState.isLoading)
+    }
+
+    private fun updateSavedLocations(viewState: SavedLocationsViewState) {
+        adapter.updateItems(viewState.locations)
+        search_location_noSavedLocationsText.setVisible(viewState.locations.isEmpty())
     }
 }
