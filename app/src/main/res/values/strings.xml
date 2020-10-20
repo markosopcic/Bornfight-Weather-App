@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weather Sopčić</string>
+    <string name="network_robot_network_restored">Internet connection restored!</string>
+    <string name="network_robot_network_lost">Internet connection lost!</string>
 </resources>

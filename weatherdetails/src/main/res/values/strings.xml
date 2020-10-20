@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="weather_details_current_forecast_title">Current weather</string>
-    <string name="weather_details_current_temperature_format">%d°C, feels like %d°C</string>
+    <string name="weather_details_current_temperature_format">%s\t %d°C, feels like %d°C</string>
     <string name="weather_details_temperature_celsius_format">%d°C</string>
     <string name="weather_details_percentage_format">%d%%</string>
     <string name="weather_details_pressure_format">%d hPa</string>

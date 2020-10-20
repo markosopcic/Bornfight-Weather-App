@@ -87,7 +87,7 @@ class WeatherDetailsFragment : BaseFragment<WeatherDetailsViewState>(R.layout.fr
             }
         }
 
-        weather_details_save_location.setOnClickListener { viewModel.toggleLocationSaved() }
+        weather_details_saveLocation.setOnClickListener { viewModel.toggleLocationSaved() }
     }
 
     override fun render(viewState: WeatherDetailsViewState) = when (viewState) {
@@ -97,7 +97,7 @@ class WeatherDetailsFragment : BaseFragment<WeatherDetailsViewState>(R.layout.fr
             dailyAdapter.updateItems(viewState.dailyForecast)
         }
         is Loading -> weather_details_spinner.setVisible(viewState.isLoading)
-        is LocationSaved -> weather_details_save_location.setImageResource(if (viewState.saved) R.drawable.ic_baseline_delete_24 else R.drawable.ic_baseline_save_24)
+        is LocationSaved -> weather_details_saveLocation.setImageResource(if (viewState.saved) R.drawable.ic_baseline_delete_24 else R.drawable.ic_baseline_save_24)
         is YoutubeVideoId -> updateYoutubeVideo(viewState.id)
     }
 
@@ -114,12 +114,14 @@ class WeatherDetailsFragment : BaseFragment<WeatherDetailsViewState>(R.layout.fr
     private fun updateTodayWeatherData(viewState: TodayWeatherInfo) {
         with(viewState) {
             Glide.with(requireContext()).load(weatherImageUrl).into(weather_details_currentWeatherImage)
-            weather_details_currentTemperatureAndFeelsLike.text =
-                getString(R.string.weather_details_current_temperature_format, currentTemp, feelsLike)
+            weather_details_currentWeatherAndFeelsLike.text =
+                getString(R.string.weather_details_current_temperature_format, weather, currentTemp, feelsLike)
             weather_details_windSpeedNow.text = getString(R.string.weather_details_wind_speed_format, windSpeed)
             weather_details_windDirectionNow.text = getString(R.string.weather_details_wind_direction_format, windDirection)
             weather_details_humidity.text = getString(R.string.weather_details_percentage_format, humidity)
             weather_details_pressure.text = getString(R.string.weather_details_pressure_format, pressure)
+            weather_details_tempHigh.text = getString(R.string.weather_details_temperature_celsius_format, maxTemp)
+            weather_details_tempLow.text = getString(R.string.weather_details_temperature_celsius_format, minTemp)
             weather_details_sunset.text = sunset
             weather_details_sunrise.text = sunrise
         }

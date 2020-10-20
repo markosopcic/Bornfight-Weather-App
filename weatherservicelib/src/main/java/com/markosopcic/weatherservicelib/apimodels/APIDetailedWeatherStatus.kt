@@ -24,7 +24,7 @@ data class APIDetailedWeatherStatus(
 
 data class APICurrent(
     @field:Json(name = "clouds")
-    val clouds: Int,
+    val clouds: Double,
     @field:Json(name = "dew_point")
     val dewPoint: Double,
     @field:Json(name = "dt")
@@ -32,9 +32,9 @@ data class APICurrent(
     @field:Json(name = "feels_like")
     val feelsLike: Double,
     @field:Json(name = "humidity")
-    val humidity: Int,
+    val humidity: Double,
     @field:Json(name = "pressure")
-    val pressure: Int,
+    val pressure: Double,
     @field:Json(name = "sunrise")
     val sunrise: Int,
     @field:Json(name = "sunset")
@@ -44,18 +44,18 @@ data class APICurrent(
     @field:Json(name = "uvi")
     val uvi: Double,
     @field:Json(name = "visibility")
-    val visibility: Int,
+    val visibility: Double,
     @field:Json(name = "weather")
     val weather: List<APIWeather>,
     @field:Json(name = "wind_deg")
-    val windDeg: Int,
+    val windDeg: Double,
     @field:Json(name = "wind_speed")
     val windSpeed: Double
 )
 
 data class APIDaily(
     @field:Json(name = "clouds")
-    val clouds: Int,
+    val clouds: Double,
     @field:Json(name = "dew_point")
     val dewPoint: Double,
     @field:Json(name = "dt")
@@ -63,11 +63,11 @@ data class APIDaily(
     @field:Json(name = "feels_like")
     val feelsLike: APIFeelsLike,
     @field:Json(name = "humidity")
-    val humidity: Int,
+    val humidity: Double,
     @field:Json(name = "pop")
     val precipitationPercentage: Double,
     @field:Json(name = "pressure")
-    val pressure: Int,
+    val pressure: Double,
     @field:Json(name = "rain")
     val rain: Double,
     @field:Json(name = "sunrise")
@@ -81,7 +81,7 @@ data class APIDaily(
     @field:Json(name = "weather")
     val weather: List<APIWeather>,
     @field:Json(name = "wind_deg")
-    val windDeg: Int,
+    val windDeg: Double,
     @field:Json(name = "wind_speed")
     val windSpeed: Double
 )
@@ -99,7 +99,7 @@ data class APIFeelsLike(
 
 data class APIHourly(
     @field:Json(name = "clouds")
-    val clouds: Int,
+    val clouds: Double,
     @field:Json(name = "dew_point")
     val dewPoint: Double,
     @field:Json(name = "dt")
@@ -107,19 +107,19 @@ data class APIHourly(
     @field:Json(name = "feels_like")
     val feelsLike: Double,
     @field:Json(name = "humidity")
-    val humidity: Int,
+    val humidity: Double,
     @field:Json(name = "pop")
     val precipitationPercentage: Double,
     @field:Json(name = "pressure")
-    val pressure: Int,
+    val pressure: Double,
     @field:Json(name = "temp")
     val temp: Double,
     @field:Json(name = "visibility")
-    val visibility: Int,
+    val visibility: Double,
     @field:Json(name = "weather")
     val weather: List<APIWeather>,
     @field:Json(name = "wind_deg")
-    val windDeg: Int,
+    val windDeg: Double,
     @field:Json(name = "wind_speed")
     val windSpeed: Double
 )
@@ -128,7 +128,7 @@ data class APIMinutely(
     @field:Json(name = "dt")
     val dt: Int,
     @field:Json(name = "precipitation")
-    val precipitation: Int
+    val precipitation: Double
 )
 
 data class APITemp(

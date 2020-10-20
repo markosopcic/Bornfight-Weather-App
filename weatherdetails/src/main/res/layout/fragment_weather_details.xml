@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,23 +17,25 @@
 
             <TextView
                 android:id="@+id/weather_details_locationName"
-                style="@style/Header"
-                android:layout_width="match_parent"
+                style="@style/WeatherDetailsInfo"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/common_margin"
                 android:gravity="center"
+                android:textSize="@dimen/base_header_text_size"
+                android:paddingHorizontal="@dimen/weather_details_save_button_dimension"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Zagreb, Croatia" />
 
             <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:id="@+id/weather_details_save_location"
-                android:src="@drawable/ic_baseline_save_24"
-                android:padding="@dimen/common_margin"
+                android:id="@+id/weather_details_saveLocation"
+                android:layout_width="@dimen/weather_details_save_button_dimension"
+                android:layout_height="@dimen/weather_details_save_button_dimension"
                 android:background="@drawable/white_selectable_bg"
+                android:padding="@dimen/common_margin"
+                android:src="@drawable/ic_baseline_save_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,13 +49,13 @@
 
             <TextView
                 android:id="@+id/weather_details_currentTitle"
-                style="@style/Title"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
                 android:text="@string/weather_details_current_forecast_title"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weather_details_locationNameDivider" />
 
             <ImageView
@@ -77,7 +78,8 @@
                 tools:src="http://openweathermap.org/img/wn/10d@2x.png" />
 
             <TextView
-                android:id="@+id/weather_details_currentTemperatureAndFeelsLike"
+                android:id="@+id/weather_details_currentWeatherAndFeelsLike"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -87,13 +89,67 @@
                 tools:text="12oC" />
 
             <ImageView
-                android:id="@+id/weather_details_wind_divider"
+                android:id="@+id/weather_details_temperatureDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
                 android:src="@drawable/line_separator"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weather_details_currentWeatherImage" />
+
+            <ImageView
+                android:id="@+id/weather_details_tempHighImage"
+                android:layout_width="@dimen/weather_details_current_weather_image_dimen"
+                android:layout_height="@dimen/weather_details_current_weather_image_dimen"
+                android:layout_marginVertical="@dimen/common_margin"
+                android:layout_marginStart="@dimen/weather_details_margin_start"
+                android:src="@drawable/ic_temp_high"
+                app:layout_constraintEnd_toStartOf="@id/weather_details_windSpeedNow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_details_temperatureDivider" />
+
+            <TextView
+                android:id="@+id/weather_details_tempHigh"
+                style="@style/WeatherDetailsInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/weather_details_tempHighImage"
+                app:layout_constraintEnd_toStartOf="@id/weather_details_tempLowImage"
+                app:layout_constraintStart_toEndOf="@id/weather_details_tempHighImage"
+                app:layout_constraintTop_toTopOf="@id/weather_details_tempHighImage"
+                tools:text="12oC" />
+
+            <ImageView
+                android:id="@+id/weather_details_tempLowImage"
+                android:layout_width="@dimen/weather_details_current_weather_image_dimen"
+                android:layout_height="@dimen/weather_details_current_weather_image_dimen"
+                android:layout_marginVertical="@dimen/common_margin"
+                android:src="@drawable/ic_temp_low"
+                app:layout_constraintBottom_toBottomOf="@id/weather_details_tempHighImage"
+                app:layout_constraintEnd_toStartOf="@id/weather_details_tempLow"
+                app:layout_constraintStart_toEndOf="@id/weather_details_tempHigh"
+                app:layout_constraintTop_toTopOf="@id/weather_details_tempHighImage" />
+
+            <TextView
+                android:id="@+id/weather_details_tempLow"
+                style="@style/WeatherDetailsInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/common_margin"
+                app:layout_constraintBottom_toBottomOf="@id/weather_details_tempLowImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/weather_details_tempLowImage"
+                app:layout_constraintTop_toTopOf="@id/weather_details_tempLowImage"
+                tools:text="12oC" />
+
+            <ImageView
+                android:id="@+id/weather_details_wind_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/common_margin"
+                android:src="@drawable/line_separator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_details_tempLowImage" />
 
             <ImageView
                 android:id="@+id/weather_details_windSpeedImage"
@@ -108,6 +164,7 @@
 
             <TextView
                 android:id="@+id/weather_details_windSpeedNow"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@id/weather_details_windSpeedImage"
@@ -129,6 +186,7 @@
 
             <TextView
                 android:id="@+id/weather_details_windDirectionNow"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -159,6 +217,7 @@
 
             <TextView
                 android:id="@+id/weather_details_humidity"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@id/weather_details_humidityImage"
@@ -180,6 +239,7 @@
 
             <TextView
                 android:id="@+id/weather_details_pressure"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -188,7 +248,6 @@
                 app:layout_constraintStart_toEndOf="@id/weather_details_pressureImage"
                 app:layout_constraintTop_toTopOf="@id/weather_details_humidityImage"
                 tools:text="1095 hPa" />
-
 
             <ImageView
                 android:id="@+id/weather_details_sunrise_divider"
@@ -211,6 +270,7 @@
 
             <TextView
                 android:id="@+id/weather_details_sunrise"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@id/weather_details_sunriseImage"
@@ -232,6 +292,7 @@
 
             <TextView
                 android:id="@+id/weather_details_sunset"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -243,7 +304,7 @@
 
             <TextView
                 android:id="@+id/weather_details_hourlyTitle"
-                style="@style/Title"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -264,7 +325,7 @@
 
             <TextView
                 android:id="@+id/weather_details_dailyTitle"
-                style="@style/Title"
+                style="@style/WeatherDetailsInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_margin"
@@ -287,18 +348,18 @@
                 android:id="@+id/weatherDetails_youtubePlaceholder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weather_details_dailyRecyclerView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/weather_details_spinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/base_dark_gray_opacity_80"
         android:clickable="true"
-        android:padding="@dimen/base_spinner_padding" />
+        android:padding="@dimen/base_spinner_padding"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

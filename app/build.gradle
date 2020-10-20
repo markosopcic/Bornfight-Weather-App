@@ -10,13 +10,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':searchlocations')
+    implementation project(":alertinglib")
     implementation project(":base")
     implementation project(":locationsourcelib")
-    implementation project(":weatherdetails")
-    implementation project(":weatherservicelib")
+    implementation project(":networkinglib")
     implementation project(":permissionslib")
+    implementation project(':searchlocations')
     implementation project(":userlocationsourcelib")
     implementation project(":youtubevideosourcelib")
+    implementation project(":weatherdetails")
+    implementation project(":weatherservicelib")
 
 }

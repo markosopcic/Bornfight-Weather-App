@@ -1,16 +1,16 @@
 package com.markosopcic.weatherservicelib.models
 
 data class Hourly(
-    val clouds: Int,
+    val clouds: Double,
     val dewPoint: Double,
     val timestampSeconds: Int,
     val feelsLike: Double,
-    val humidity: Int,
-    val precipitationPercentage: Int,
-    val pressure: Int,
+    val humidity: Double,
+    val precipitationPercentage: Double,
+    val pressure: Double,
     val temperature: Double,
-    val visibility: Int,
+    val visibility: Double,
     val weather: List<Weather>,
-    val windDegrees: Int,
+    val windDegrees: Double,
     val windSpeed: Double
 )

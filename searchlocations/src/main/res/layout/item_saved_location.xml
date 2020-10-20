@@ -22,7 +22,7 @@
         android:id="@+id/location_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginHorizontal="@dimen/common_margin"
         style="@style/BaseText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/location_temperature"

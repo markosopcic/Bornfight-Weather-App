@@ -1,3 +1,5 @@
+include ':alertinglib'
+include ':networkinglib'
 include ':youtubevideosourcelib'
 include ':weatherdetails'
 include ':userlocationsourcelib'

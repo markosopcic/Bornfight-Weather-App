@@ -62,7 +62,7 @@ class WeatherRepositoryImpl(private val weatherService: WeatherService) : Weathe
         )
     }
 
-    private fun Double.toPercentage() = (this * 100).toInt()
+    private fun Double.toPercentage() = (this * 100)
 
     private fun Double.kelvinToCelsius() = this - 273.15
 }

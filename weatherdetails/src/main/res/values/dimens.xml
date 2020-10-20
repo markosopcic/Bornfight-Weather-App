@@ -2,4 +2,5 @@
 <resources>
     <dimen name="weather_details_current_weather_image_dimen">50dp</dimen>
     <dimen name="weather_details_margin_start">10dp</dimen>
+    <dimen name="weather_details_save_button_dimension">50dp</dimen>
 </resources>

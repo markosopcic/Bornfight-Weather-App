@@ -25,13 +25,12 @@ fun <T> Single<T>.retryOnNetworkFailure(retryDelaySeconds: Long = 5L) = retryWhe
 
 fun <T> Flowable<T>.retryOnNetworkFailure(retryDelaySeconds: Long = 5L) = retryWhen {
     it.flatMapSingle { error ->
-        when (error) {
-            is SocketTimeoutException -> {
-                Timber.d("Retrying network error:")
-                Timber.d(error)
-                Single.timer(retryDelaySeconds, TimeUnit.SECONDS)
-            }
-            else -> Single.error(error)
+        if (error is SocketTimeoutException || error is UnknownHostException) {
+            Timber.d("Retrying network error:")
+            Timber.d(error)
+            Single.timer(retryDelaySeconds, TimeUnit.SECONDS)
+        } else {
+            Single.error(error)
         }
     }
 }
@@ -40,5 +39,6 @@ fun Completable.publishProgress(progressPublisher: FlowableProcessor<Boolean>): 
     .doOnSubscribe { progressPublisher.onNext(true) }
     .doOnTerminate { progressPublisher.onNext(false) }
 
-fun <T> Flowable<T>.publishProgress(progressPublisher: FlowableProcessor<Boolean>): Flowable<T> = this.doOnSubscribe { progressPublisher.onNext(true) }
-    .doOnNext { progressPublisher.onNext(false) }
+fun <T> Flowable<T>.publishProgress(progressPublisher: FlowableProcessor<Boolean>): Flowable<T> =
+    this.doOnSubscribe { progressPublisher.onNext(true) }
+        .doOnNext { progressPublisher.onNext(false) }

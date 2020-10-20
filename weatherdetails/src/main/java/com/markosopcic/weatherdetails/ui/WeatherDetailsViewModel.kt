@@ -11,7 +11,7 @@ import com.markosopcic.weatherdetails.ui.WeatherDetailsViewState.Loading
 import com.markosopcic.weatherdetails.ui.WeatherDetailsViewState.LocationSaved
 import com.markosopcic.weatherservicelib.models.DetailedWeatherStatus
 import com.markosopcic.weatherservicelib.usecase.GetDetailedWeatherForLocation
-import com.markosopcic.youtubevideosource.usecase.SearchYoutubeVideos
+import com.markosopcic.youtubevideo.usecase.SearchYoutubeVideos
 import io.reactivex.Scheduler
 import io.reactivex.processors.BehaviorProcessor
 import java.text.SimpleDateFormat
@@ -74,7 +74,7 @@ class WeatherDetailsViewModel(
         WeatherForecastItem(
             it.timestampSeconds.getDayFromUnixSeconds(),
             it.temp.max.toInt(),
-            it.precipitationPercentage,
+            it.precipitationPercentage.toInt(),
             it.weather.firstOrNull()?.icon ?: ""
         )
     }
@@ -83,7 +83,7 @@ class WeatherDetailsViewModel(
         WeatherForecastItem(
             it.timestampSeconds.getHourDayFromUnixSeconds(),
             it.temperature.toInt(),
-            it.precipitationPercentage,
+            it.precipitationPercentage.toInt(),
             it.weather.firstOrNull()?.icon ?: ""
         )
     }
@@ -93,12 +93,15 @@ class WeatherDetailsViewModel(
             temp.toInt(),
             feelsLike.toInt(),
             windSpeed.toInt(),
-            windDeg,
-            humidity,
-            pressure,
+            windDeg.toInt(),
+            humidity.toInt(),
+            pressure.toInt(),
             weather.firstOrNull()?.icon ?: "",
+            weather.firstOrNull()?.main ?: "",
             sunrise.getTimeFormatFromUnixSeconds(),
-            sunset.getTimeFormatFromUnixSeconds()
+            sunset.getTimeFormatFromUnixSeconds(),
+            daily.first().temp.max.toInt(),
+            daily.first().temp.min.toInt()
         )
     }
 

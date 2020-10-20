@@ -8,7 +8,7 @@ import com.markosopcic.locationsource.usecase.GetSavedLocationById
 import com.markosopcic.permissionslib.usecase.RequireLocationPermissionAndEnabled
 import com.markosopcic.searchlocations.ui.SearchLocationsViewState.Loading
 import com.markosopcic.searchlocations.ui.SearchLocationsViewState.SavedLocationsViewState
-import com.markosopcic.userlocationsource.usecase.GetUserLocation
+import com.markosopcic.userlocation.usecase.GetUserLocation
 import com.markosopcic.weatherservicelib.usecase.GetWeatherForSavedLocations
 import com.markosopcic.weatherservicelib.usecase.LocationWithWeather
 import io.reactivex.Completable

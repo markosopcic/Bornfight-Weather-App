@@ -42,9 +42,9 @@ data class APICoordinates(
 
 data class APIMain(
     @field:Json(name = "humidity")
-    val humidity: Int,
+    val humidity: Double,
     @field:Json(name = "pressure")
-    val pressure: Int,
+    val pressure: Double,
     @field:Json(name = "temp")
     val temperature: Double,
     @field:Json(name = "temp_max")

@@ -22,6 +22,9 @@ class TodayWeatherInfo(
     val humidity: Int,
     val pressure: Int,
     val weatherImageUrl: String,
+    val weather: String,
     val sunrise: String,
-    val sunset: String
+    val sunset: String,
+    val maxTemp: Int,
+    val minTemp: Int
 )
